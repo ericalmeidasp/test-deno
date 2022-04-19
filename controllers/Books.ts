@@ -4,7 +4,8 @@ import data from "../db/db.json" assert { type: "json" };
 class Books {
   constructor() {}
   public index({ response }: { response: Response }) {
-    response.body = data.books;
+    const books = JSON.parse(data.books)
+    response.body = books;
   }
   public show({
     response,
@@ -15,7 +16,8 @@ class Books {
     params: { id: any };
   }) {
     const index = data.books.findIndex(book => book.id == params.id);
-    response.body = data.books[index];
+    const book = JSON.parse(data.books[index])
+    response.body = book;
   }
 }
 
