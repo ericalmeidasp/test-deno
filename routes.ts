@@ -5,4 +5,4 @@ export const router = new Router();
 router.get("/users", Users.show);
 
 router.get("/books", Books.index);
-router.post("/books", Books.show);
+router.get("/books/:id", Books.show);
