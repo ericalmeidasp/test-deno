@@ -4,8 +4,7 @@ import data from "../db/db.json" assert { type: "json" };
 class Books {
   constructor() {}
   public index({ response }: { response: Response }) {
-    const books: [] = data.books
-    response.body = books;
+    response.body = data;
   }
   public show({
     response,
@@ -15,8 +14,8 @@ class Books {
     // deno-lint-ignore no-explicit-any
     params: { id: any };
   }) {
-    const index = data.books.findIndex(book => book.id == params.id);
-    const book: {} = data.books[index]
+    const index = data.findIndex(book => book.id == params.id);
+    const book = data[index]
     response.body = book;
   }
 }
