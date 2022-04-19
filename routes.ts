@@ -1,6 +1,8 @@
 import { Router } from "https://deno.land/x/oak@v10.5.1/mod.ts";
-import User from "./controller.ts";
+import { Users, Books } from "./controllers/index.ts";
 export const router = new Router();
-router.get("/", User.index);
-router.get("/oi", User.show);
-router.post("/oi", User.store);
+
+router.get("/users", Users.show);
+
+router.get("/books", Books.index);
+router.post("/books", Books.show);
